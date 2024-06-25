@@ -1,6 +1,7 @@
 import { user } from "./services/user.js"
 import {repositories} from "./services/repositories.js"
 
+
 document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value
     getUserProfile(userName)
