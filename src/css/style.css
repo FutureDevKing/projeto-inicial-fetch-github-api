@@ -105,6 +105,7 @@ main {
 
 .container .profile-data .info img{
   width: 50%;
+  margin-bottom: 20px;
   border-radius: 50%;
   border: 10px solid hotpink;
 }

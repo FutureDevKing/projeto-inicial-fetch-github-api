@@ -1,5 +1,5 @@
 import { gitHubUrlDefault } from "../variables.js"
-import { users } from "../objects/user.js"
+//import { users } from "../objects/user.js"
 
 const screen = {
     userProfile: document.querySelector('.profile-data'),
