@@ -2,8 +2,8 @@ import { getUser } from "./services/user.js"
 import { getRepositories } from "./services/repositories.js"
 import { getEvents } from "./services/events.js"
 
-import { users } from "../js/objects/users.js"
-import { screen } from "../js/objects/screen.js"
+import { users } from "./objects/user.js"
+import { screen } from "./objects/screen.js"
 
 document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value
