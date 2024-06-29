@@ -50,4 +50,6 @@ async function getUserData(userName){
     users.setEvents(eventsResponse)
     console.log(users)
     screen.renderUser(users)
+
+    console.log(userResponse);
 }

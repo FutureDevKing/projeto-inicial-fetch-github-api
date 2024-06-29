@@ -1,4 +1,4 @@
-const baseUrl = "http://api.github.com/users/"
+const baseUrl = "http://api.github.com/users"
 const gitHubUrlDefault = "https://github.com"
 const maxItems = 10
 
