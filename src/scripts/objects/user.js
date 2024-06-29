@@ -1,13 +1,12 @@
-const user = {
-    avatarUrl: "",
-    name: "",
-    bio:"",
-    userName: "",
-    followers: "",
-    following:"",
+const users = {
+    avatarUrl: '',
+    name: '',
+    bio: '',
+    userName: '',
+    followers: '',
+    following: '',
     repositories: [],
     events: [],
-
     setInfo(gitHubUser){
         this.avatarUrl = gitHubUser.avatar_url
         this.name = gitHubUser.name
@@ -22,6 +21,7 @@ const user = {
     setEvents(events){
         this.events = events
     }
+    
 }
 
-export { user }
+export { users }

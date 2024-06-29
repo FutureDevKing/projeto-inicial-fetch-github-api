@@ -1,54 +1,53 @@
 import { getUser } from "./services/user.js"
 import { getRepositories } from "./services/repositories.js"
+import { getEvents } from "./services/events.js"
 
-import { user } from "../scripts/objects/user.js"
-import { screen } from "../scripts/objects/screen.js"
-import { getUserEvents } from '../scripts/objects/events.js'
-
+import { users } from "../js/objects/users.js"
+import { screen } from "../js/objects/screen.js"
 
 document.getElementById('btn-search').addEventListener('click', () => {
     const userName = document.getElementById('input-search').value
-    if(validateEmptInput(userName)) return
+    if(validateEmptyInput(userName)) return
     getUserData(userName)
 })
 
+
 document.getElementById('input-search').addEventListener('keyup', (e) => {
+    console.log(e)
     const userName = e.target.value
     const key = e.which || e.keyCode
-    const isEnterPressed = key === 13
+    const isEnterKeyPressed = key === 13
 
-    if (isEnterPressed) {
-        validateEmptInput(userName)
+    if(isEnterKeyPressed){
+        if(validateEmptyInput(userName)) return
         getUserData(userName)
     }
 })
 
-function validateEmptInput(userName){
+function validateEmptyInput(userName){
     if(userName.length === 0){
-        alert("preencha o campo com o nome de usuário do GitHub")
+        alert('Preencha o campo com o nome do usuário do GitHub')
         return true
     }
 }
 
-async function getUserData(userName) {
-
+async function getUserData(userName){
     const userResponse = await getUser(userName)
-
+    console.log(userResponse)
     if(userResponse.message === "Not Found"){
-        screen.renderNotFound()
+        screen.renderUserNotFound()
         return
     }
 
     const repositoriesResponse = await getRepositories(userName)
-
-    const eventsListed = await getUserEvents(userName)
-
-    user.setInfo(userResponse)
-    user.setRepositories(repositoriesResponse)
-    user.setEvents(eventsListed)
-    screen.renderUser(user)
+    console.log(repositoriesResponse)
     
-    console.log(userResponse);
+    const eventsResponse = await getEvents(userName)
+    
+
+    users.setInfo(userResponse)
+    users.setRepositories(repositoriesResponse)
+    users.setEvents(eventsResponse)
+    console.log(users)
+    screen.renderUser(users)
 }
-
-
